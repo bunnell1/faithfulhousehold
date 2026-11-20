@@ -94,12 +94,13 @@
             <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
             <div>
               <label>What Live is for</label>
-              <p class="hint">Optional. These do not change the numbers. They name what the remainder covers.</p>
+              <p class="hint">Optional. Enter amounts. The rest is what remains of Live. Empty fields count as zero.</p>
               <div class="livefor">
-                <div><label for="live-shelter">Shelter</label><input id="live-shelter" type="text" placeholder="Rent or mortgage"></div>
-                <div><label for="live-food">Food</label><input id="live-food" type="text" placeholder="Groceries"></div>
-                <div><label for="live-fuel">Fuel</label><input id="live-fuel" type="text" placeholder="Gas, transit"></div>
-                <div><label for="live-rest">The rest</label><input id="live-rest" type="text" placeholder="Everything else"></div>
+                <div><label for="live-shelter">Shelter</label><div class="field"><span>$</span><input id="live-shelter" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-food">Food</label><div class="field"><span>$</span><input id="live-food" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-fuel">Fuel</label><div class="field"><span>$</span><input id="live-fuel" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-utilities">Utilities</label><div class="field"><span>$</span><input id="live-utilities" inputmode="numeric" autocomplete="off"></div></div>
+                <div class="live-rest-row"><label>The rest</label><p class="rest-amt" id="live-rest">$0</p><p class="hint">What is left of Live after the amounts above.</p></div>
               </div>
             </div>
           </div>

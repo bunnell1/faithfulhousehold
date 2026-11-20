@@ -97,3 +97,6 @@ details.note-expand .hint { margin-top:.5rem; }
   body { background:#fff; }
   .livefor input { border:0; background:transparent; padding:0; height:auto; }
 }
+
+.live-rest-row { grid-column: 1 / -1; margin-top:.25rem; }
+.rest-amt { font-family: Fraunces, Georgia, serif; font-size:1.35rem; margin:.2rem 0 0; }
