@@ -10,8 +10,92 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<p>placeholder</p>
+  <div class="wrap">
+    <div class="bar no-print"></div>
+    <header>
+      <div class="brand">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="#f3eee4" d="M16 6.2 6.2 14.8h2.7V25.8h14.2V14.8h2.7z"/><rect x="14.15" y="18.55" width="3.7" height="7.25" fill="#8d4e2b"/></svg></span>
+        <div>
+          <p class="display" style="margin:0;font-size:1.25rem">Faithful Household</p>
+          <p class="muted" style="margin:0">A stewardship planning aid</p>
+        </div>
+      </div>
+      <nav class="no-print" aria-label="Site">
+        <button type="button" id="nav-plan" aria-current="page">Plan</button>
+        <button type="button" id="nav-about">About</button>
+      </nav>
+    </header>
+
+    <div id="view-plan">
+      <h1>Give first. Then keep the house in order.</h1>
+      <p class="lede">One month at a time. First fruits, then what is owed, then a reserve, then living on what remains. Change the numbers and the next step changes with them.</p>
+      <div class="grid">
+        <section class="card">
+          <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">This month</h2><span class="kicker">01</span></div>
+          <p id="example-note" class="note">Example numbers, not a real household. Edit anything, or clear the form.</p>
+          <div class="no-print">
+            <div class="actions">
+              <button class="btn" type="button" id="load">Load example</button>
+              <button class="btn quiet" type="button" id="clear">Clear</button>
+              <button class="btn quiet" type="button" id="print">Print</button>
+            </div>
+            <div class="fileline">
+              <label class="sr" for="filename" style="position:absolute;left:-999px">File name</label>
+              <input id="filename" type="text" placeholder="november-plan" autocomplete="off">
+              <button class="btn solid" type="button" id="save">Save</button>
+              <button class="btn" type="button" id="open">Open</button>
+              <input id="file" type="file" accept="application/json,.json" hidden>
+            </div>
+            <p class="hint" id="file-note" role="status">Enter a filename and save. Open loads that file back onto this form.</p>
+          </div>
+          <div class="stack" style="margin-top:1.25rem">
+            <div><label for="income">Take-home pay</label><div class="field"><span>$</span><input id="income" inputmode="numeric" autocomplete="off"></div><p class="hint">What actually arrives this month, after taxes.</p></div>
+            <div><div class="row"><label for="giving">Giving, first</label><span class="muted" id="giving-read"></span></div><input id="giving" type="range" min="0" max="20" step="1"></div>
+            <div><div class="row"><label for="reserve">Reserve, after giving</label><span class="muted" id="reserve-read"></span></div><input id="reserve" type="range" min="0" max="30" step="1"></div>
+            <div><label for="debt-balance">Debt you intend to retire</label><div class="field"><span>$</span><input id="debt-balance" inputmode="numeric" autocomplete="off"></div><p class="hint">Leave at zero if there is none. A mortgage can wait outside this page.</p></div>
+            <div><label for="debt-payment">Payment due this month</label><div class="field"><span>$</span><input id="debt-payment" inputmode="numeric" autocomplete="off"></div><p class="hint">The amount that must go out, not an extra you hope to add.</p></div>
+            <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
+          </div>
+        </section>
+        <div>
+          <section class="card">
+            <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">The order</h2><span class="kicker">02</span></div>
+            <p class="hint">Giving is taken first. What is owed comes next. Reserve takes only what is still there. Living is the remainder — it is not the starting point.</p>
+            <p id="empty" class="hint" style="text-align:center;border:1px dashed var(--line);border-radius:.5rem;padding:2rem 1rem">Enter take-home pay to see how the month divides.</p>
+            <ol class="order" id="order"></ol>
+            <p id="short"></p>
+          </section>
+          <section class="next">
+            <div class="row"><span class="kicker">Do this next</span><span class="kicker">03</span></div>
+            <h2 class="display" id="step-title" style="margin:.6rem 0 0;font-size:1.6rem"></h2>
+            <p id="step-body"></p>
+            <blockquote><p id="step-verse"></p><footer id="step-ref"></footer></blockquote>
+          </section>
+        </div>
+      </div>
+      <section class="card" style="margin-top:1.5rem">
+        <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">Three intentions</h2><span class="kicker">04</span></div>
+        <p class="hint">You mark these. The plan does not decide them for you.</p>
+        <div class="goals" id="goals"></div>
+      </section>
+      <footer class="fine">
+        <p>Entered numbers stay on your device. They are not uploaded. This is a planning aid, not financial, tax, or investment advice, and not a substitute for pastoral counsel.</p>
+      </footer>
+    </div>
+
+    <div id="view-about" class="about hidden">
+      <h1>A planning aid, not a financial product.</h1>
+      <p class="lede">Faithful Household shows one month in a biblical order: giving first, then what is owed, then a reserve, then living on what remains. It is meant to be used with Scripture open, alongside prayer, the local church, and counsel you already trust.</p>
+      <section><h2>What this site is for</h2><ul><li>Put this month’s take-home into an order you can see.</li><li>Receive one next step, with a passage, instead of a pile of advice.</li><li>Mark three intentions yourself. The site does not decide them.</li><li>Enter a filename and save. Open that file later and it loads back onto the plan.</li><li>Print the month and keep the paper.</li></ul></section>
+      <section><h2>What this site is not</h2><ul><li>Not financial, tax, or investment advice.</li><li>Not a bank connection, a full budget, or a place that holds your accounts.</li><li>Not a substitute for pastoral counsel or a qualified professional.</li><li>Entered numbers stay on your device. They are not uploaded to the website. Do not put account numbers, full names, or anything that identifies a person in the saved file.</li></ul></section>
+      <section><h2>Where the numbers live</h2><p>The plan in this browser is kept in local storage on this device. We do not receive it. Clearing site data, or opening another browser, removes that local copy. A saved file is the copy you can move. Opening it loads the amounts back onto this form.</p></section>
+      <section id="install"><h2>Add it to your home screen</h2><p class="muted">No app store. The site itself can sit on your phone.</p><h3>Android, in Chrome</h3><ol><li>Open Faithful Household in Chrome.</li><li>Tap the menu, the three dots at the top.</li><li>Tap Install app, or Add to Home screen.</li><li>Confirm.</li></ol><h3>iPhone, in Safari</h3><ol><li>Open Faithful Household in Safari.</li><li>Tap the Share button.</li><li>Tap Add to Home Screen, then Add.</li></ol></section>
+      <section style="border-top:1px solid var(--line);padding-top:1.5rem"><h2>This version, and later</h2><p>This is the first version: one month, numbers you type, one next step. Saved files from this version will still open.</p></section>
+    </div>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
