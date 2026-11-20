@@ -85,7 +85,7 @@ function renderDebts() {
     box.insertAdjacentHTML("beforeend", `<p class="hint">Listed in the order entered. The smallest balance is the one in view this month.</p>`);
   }
 }
-function render() {
+function render(skipDebts) {
   state = normalize(state);
   const p = planOf(state);
   const step = stepOf(state, p);
@@ -96,7 +96,7 @@ function render() {
   $("reserve").value = Math.round(state.reserveRate*100);
   $("giving-read").textContent = Math.round(state.givingRate*100) + "% · " + money(p.giving);
   $("reserve-read").textContent = Math.round(state.reserveRate*100) + "% · " + money(p.reserve);
-  renderDebts();
+  if (!skipDebts) renderDebts();
   const income = nn(state.income);
   $("empty").classList.toggle("hidden", income>0);
   const oweQuiet = p.count===0 ? "No debt entered" : (p.count>1 ? `${p.count} debts` : "");
@@ -132,7 +132,7 @@ function render() {
 function set(partial) { state = normalize({ ...state, ...partial, source:"yours" }); render(); }
 function updateDebt(id, patch) {
   state = normalize({ ...state, source:"yours", debts: state.debts.map(d => d.id===id ? { ...d, ...patch } : d) });
-  render();
+  render(true);
 }
 document.addEventListener("input", (e) => {
   const id = e.target.id;
