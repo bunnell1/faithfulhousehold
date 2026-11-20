@@ -256,7 +256,6 @@ function crossSiteBlockedResult(): CallToolResult | null {
 }
 
 const FAILURE_MEMO_TTL_MS = 5_000;
-
 const failureMemo = new Map<string, { at: number; result: CallToolResult }>();
 
 function tokenIdentityKey(token: string): string {
