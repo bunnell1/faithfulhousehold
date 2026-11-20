@@ -1,6 +1,6 @@
 const KEY = "faithful-household-v1";
-const EXAMPLE = { source:"example", income:5800, givingRate:0.1, reserveRate:0.08, debts:[{id:1,name:"Card",balance:12400,payment:280}], emergencySaved:900, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
-const BLANK = { source:"yours", income:0, givingRate:0.1, reserveRate:0.1, debts:[{id:1,name:"",balance:0,payment:0}], emergencySaved:0, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
+const EXAMPLE = { source:"example", income:5800, givingRate:0.1, reserveRate:0.08, debts:[{id:1,name:"Card",balance:12400,payment:280}], emergencySaved:900, liveFor:{shelter:"",food:"",fuel:"",rest:""}, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
+const BLANK = { source:"yours", income:0, givingRate:0.1, reserveRate:0.1, debts:[{id:1,name:"",balance:0,payment:0}], emergencySaved:0, liveFor:{shelter:"",food:"",fuel:"",rest:""}, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
 let state = structuredClone(EXAMPLE);
 let nextId = 2;
 const $ = (id) => document.getElementById(id);
@@ -13,7 +13,13 @@ function normalize(s) {
   }
   if (!debts.length) debts = [{ id:1, name:"", balance:0, payment:0 }];
   nextId = Math.max(nextId, ...debts.map(d => d.id||0)) + 1;
-  return { ...s, debts };
+  const liveFor = s.liveFor && typeof s.liveFor === "object" ? {
+    shelter: String(s.liveFor.shelter||"").slice(0,60),
+    food: String(s.liveFor.food||"").slice(0,60),
+    fuel: String(s.liveFor.fuel||"").slice(0,60),
+    rest: String(s.liveFor.rest||"").slice(0,60)
+  } : {shelter:"",food:"",fuel:"",rest:""};
+  return { ...s, debts, liveFor };
 }
 function activeDebts(s) {
   return (s.debts||[]).filter(d => nn(d.balance)>0).sort((a,b) => nn(a.balance)-nn(b.balance));
@@ -92,6 +98,11 @@ function render(skipDebts) {
   $("example-note").classList.toggle("hidden", state.source!=="example");
   $("income").value = state.income ? String(state.income) : "";
   $("saved").value = state.emergencySaved ? String(state.emergencySaved) : "";
+  const lf = state.liveFor || {};
+  $("live-shelter").value = lf.shelter || "";
+  $("live-food").value = lf.food || "";
+  $("live-fuel").value = lf.fuel || "";
+  $("live-rest").value = lf.rest || "";
   $("giving").value = Math.round(state.givingRate*100);
   $("reserve").value = Math.round(state.reserveRate*100);
   $("giving-read").textContent = Math.round(state.givingRate*100) + "% · " + money(p.giving);
@@ -140,6 +151,10 @@ document.addEventListener("input", (e) => {
   if (id==="giving") set({givingRate:Number(e.target.value)/100});
   if (id==="reserve") set({reserveRate:Number(e.target.value)/100});
   if (id==="saved") set({emergencySaved:digits(e.target)});
+  if (id==="live-shelter") set({liveFor:{...state.liveFor, shelter:e.target.value}});
+  if (id==="live-food") set({liveFor:{...state.liveFor, food:e.target.value}});
+  if (id==="live-fuel") set({liveFor:{...state.liveFor, fuel:e.target.value}});
+  if (id==="live-rest") set({liveFor:{...state.liveFor, rest:e.target.value}});
   const nameId = e.target.dataset.name;
   const balId = e.target.dataset.bal;
   const payId = e.target.dataset.pay;
@@ -168,6 +183,12 @@ $("add-debt").onclick = () => {
 };
 $("load").onclick = () => { state = structuredClone(EXAMPLE); render(); };
 $("clear").onclick = () => { state = structuredClone(BLANK); render(); };
+$("next-month").onclick = () => {
+  state = normalize({ ...state, source:"yours", income:0 });
+  $("file-note").textContent = "Rates, debts, and what is set aside are kept. Enter this month’s take-home.";
+  render();
+  $("income").focus();
+};
 $("print").onclick = () => window.print();
 $("nav-home").onclick = () => show("home");
 $("nav-mark").onclick = () => show("home");

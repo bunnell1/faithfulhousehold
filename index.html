@@ -33,7 +33,7 @@
     <div id="view-home">
       <p class="eyebrow">A stewardship planning aid</p>
       <h1>Give first. Then keep the house in order.</h1>
-      <p class="lede">One month at a time. First fruits, then what is owed, then a reserve, then living on what remains. Change the numbers and the next step changes with them.</p>
+      <p class="lede">One month at a time. The order does not change: Give, Owe, Keep, Live. Change the numbers and the next step changes with them.</p>
       <div class="actions">
         <button class="btn solid" type="button" id="open-plan">Open this month</button>
         <button class="btn quiet" type="button" id="open-about">What this is, and is not</button>
@@ -49,7 +49,7 @@
 
     <div id="view-plan" class="hidden">
       <h1>Give first. Then keep the house in order.</h1>
-      <p class="lede">One month at a time. First fruits, then what is owed, then a reserve, then living on what remains. Change the numbers and the next step changes with them.</p>
+      <p class="lede">One month at a time. The order does not change: Give, Owe, Keep, Live. Change the numbers and the next step changes with them.</p>
       <div class="grid">
         <section class="card">
           <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">This month</h2><span class="kicker">01</span></div>
@@ -58,6 +58,7 @@
             <div class="actions">
               <button class="btn" type="button" id="load">Load example</button>
               <button class="btn quiet" type="button" id="clear">Clear</button>
+              <button class="btn quiet" type="button" id="next-month">Start next month from this</button>
               <button class="btn quiet" type="button" id="print">Print</button>
             </div>
             <div class="fileline">
@@ -91,6 +92,16 @@
               </details>
             </div>
             <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
+            <div>
+              <label>What Live is for</label>
+              <p class="hint">Optional. These do not change the numbers. They name what the remainder covers.</p>
+              <div class="livefor">
+                <div><label for="live-shelter">Shelter</label><input id="live-shelter" type="text" placeholder="Rent or mortgage"></div>
+                <div><label for="live-food">Food</label><input id="live-food" type="text" placeholder="Groceries"></div>
+                <div><label for="live-fuel">Fuel</label><input id="live-fuel" type="text" placeholder="Gas, transit"></div>
+                <div><label for="live-rest">The rest</label><input id="live-rest" type="text" placeholder="Everything else"></div>
+              </div>
+            </div>
           </div>
         </section>
         <div>
@@ -126,6 +137,16 @@
       <section><h2>What this site is not</h2><ul><li>Not financial, tax, or investment advice.</li><li>Not a bank connection, a full budget, or a place that holds your accounts.</li><li>Not a substitute for pastoral counsel or a qualified professional.</li><li>Entered numbers stay on your device. They are not uploaded to the website. Do not put account numbers, full names, or anything that identifies a person in the saved file.</li></ul></section>
       <section><h2>Where the numbers live</h2><p>The plan in this browser is kept in local storage on this device. We do not receive it. Clearing site data, or opening another browser, removes that local copy. A saved file is the copy you can move. Opening it loads the amounts back onto this form.</p></section>
       <section id="install"><h2>Add it to your home screen</h2><p class="muted">No app store. The site itself can sit on your phone.</p><h3>Android, in Chrome</h3><ol><li>Open Faithful Household in Chrome.</li><li>Tap the menu, the three dots at the top.</li><li>Tap Install app, or Add to Home screen.</li><li>Confirm.</li></ol><h3>iPhone, in Safari</h3><ol><li>Open Faithful Household in Safari.</li><li>Tap the Share button.</li><li>Tap Add to Home Screen, then Add.</li></ol></section>
+      <section><h2>Why this order</h2>
+        <p>The order is not a budget system. It is the shape Scripture already gives to a household’s money.</p>
+        <ul>
+          <li><strong>Give first.</strong> “Honour the LORD with thy substance, and with the firstfruits of all thine increase” (Proverbs 3:9). The month begins with what is set apart, not with what is left.</li>
+          <li><strong>Then what is owed.</strong> “The borrower is servant to the lender” (Proverbs 22:7). A payment named is a debt faced. A payment left vague is a worry that still owns the month.</li>
+          <li><strong>Then a reserve.</strong> “There is treasure to be desired and oil in the dwelling of the wise; but a foolish man spendeth it up” (Proverbs 21:20). Margin is kept from what remains after giving and paying, not borrowed from the future.</li>
+          <li><strong>Then live on what is left.</strong> “But godliness with contentment is great gain” (1 Timothy 6:6). The remainder is the boundary of the month, not the starting point for new wants.</li>
+        </ul>
+        <p>Knowing the numbers is part of the same care: “Be thou diligent to know the state of thy flocks, and look well to thy herds” (Proverbs 27:23). The page shows one month in that order and names one next step. It does not replace prayer, the local church, or counsel you already trust.</p>
+      </section>
       <section style="border-top:1px solid var(--line);padding-top:1.5rem"><h2>This version, and later</h2><p>This is the first version: one month, numbers you type, one next step. Saved files from this version will still open.</p></section>
     </div>
   </div>

@@ -84,3 +84,16 @@ details.note-expand summary:hover { color:var(--ink); }
 details.note-expand ol { margin:.5rem 0 0; padding-left:1.25rem; }
 details.note-expand li { margin:.25rem 0; }
 details.note-expand .hint { margin-top:.5rem; }
+
+.livefor { display:grid; gap:.5rem; margin-top:.5rem; }
+@media (min-width: 480px) { .livefor { grid-template-columns:1fr 1fr; } }
+.livefor label { font-size:.85rem; font-weight:600; }
+.livefor input { width:100%; height:2.5rem; border:1px solid var(--line); border-radius:.5rem; background:var(--paper); padding:0 .75rem; }
+
+@media print {
+  header nav, .no-print, .actions, .fileline, #add-debt, details.note-expand, input[type="range"], .btn { display:none !important; }
+  .card, .next { break-inside: avoid; }
+  .next { background:#2f4a38 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:#fff; }
+  .livefor input { border:0; background:transparent; padding:0; height:auto; }
+}
