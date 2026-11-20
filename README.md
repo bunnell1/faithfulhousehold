@@ -2,15 +2,17 @@
 
 A stewardship planning aid. One month at a time: giving first, then what is owed, then a reserve, then living on what remains.
 
-Numbers you enter stay in the browser on your device. They are not uploaded. A file you save is the copy you can move.
+The page you open is [index.html](index.html). Numbers stay in the browser. They are not uploaded.
 
-This is not financial, tax, or investment advice, and it is not a substitute for pastoral counsel.
+## Put it on the web
 
-## Run locally
+Same as Grace & Truth Counsel. In this repository:
 
-```bash
-npm install
-npm run dev
-```
+1. Settings
+2. Pages
+3. Branch: `main`, folder: `/ (root)`
+4. Save
 
-The app is served at http://127.0.0.1:8080.
+GitHub will serve it at https://bunnell1.github.io/faithfulhousehold/
+
+When you own faithfulhousehold.com, add a file named `CNAME` containing that domain, and point the domain at GitHub Pages.
