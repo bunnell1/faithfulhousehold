@@ -78,6 +78,17 @@
               <p class="hint">Name one, or add more. A mortgage can wait outside this page.</p>
               <div id="debts" class="debts"></div>
               <button class="btn quiet" type="button" id="add-debt">Add another</button>
+              <details class="note-expand">
+                <summary>How to use more than one debt</summary>
+                <ol>
+                  <li>Name every debt except a mortgage. A short name is enough.</li>
+                  <li>Enter the balance and the payment that must go out this month on each.</li>
+                  <li>The order still takes giving first, then the sum of those payments.</li>
+                  <li>Any extra that fits after giving can go toward the smallest balance.</li>
+                  <li>When a balance reaches zero, remove its row. Its payment is free to move to the next.</li>
+                </ol>
+                <p class="hint">The smallest balance is the one in view. The page does not choose the order for you.</p>
+              </details>
             </div>
             <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
           </div>

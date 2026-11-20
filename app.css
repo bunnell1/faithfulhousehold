@@ -77,3 +77,10 @@
 .debt-fields { display:grid; gap:.5rem; }
 @media (min-width: 480px) { .debt-fields { grid-template-columns:1fr 1fr; } }
 .debt .remove { height:auto; padding:.2rem .4rem; font-size:.85rem; }
+
+details.note-expand { margin-top:.75rem; }
+details.note-expand summary { cursor:pointer; color:var(--muted); font-size:.9rem; font-weight:600; }
+details.note-expand summary:hover { color:var(--ink); }
+details.note-expand ol { margin:.5rem 0 0; padding-left:1.25rem; }
+details.note-expand li { margin:.25rem 0; }
+details.note-expand .hint { margin-top:.5rem; }
