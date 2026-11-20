@@ -1,5 +1,5 @@
 const KEY = "faithful-household-v1";
-const EXAMPLE = { source:"example", income:5800, givingRate:0.1, reserveRate:0.08, debts:[{id:1,name:"Card",balance:12400,payment:280}], emergencySaved:900, liveFor:{shelter:0,food:0,fuel:0,utilities:0}, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
+const EXAMPLE = { source:"example", income:5000, givingRate:0.1, reserveRate:0.08, debts:[{id:1,name:"Card",balance:6800,payment:190}], emergencySaved:2000, liveFor:{shelter:1400,food:600,fuel:250,utilities:200}, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
 const BLANK = { source:"yours", income:0, givingRate:0.1, reserveRate:0.1, debts:[{id:1,name:"",balance:0,payment:0}], emergencySaved:0, liveFor:{shelter:0,food:0,fuel:0,utilities:0}, goals:{firstFruits:false,oneMonth:false,namedDebt:false} };
 let state = structuredClone(EXAMPLE);
 let nextId = 2;
