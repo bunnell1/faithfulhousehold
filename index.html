@@ -73,8 +73,12 @@
             <div><label for="income">Take-home pay</label><div class="field"><span>$</span><input id="income" inputmode="numeric" autocomplete="off"></div><p class="hint">What actually arrives this month, after taxes.</p></div>
             <div><div class="row"><label for="giving">Giving, first</label><span class="muted" id="giving-read"></span></div><input id="giving" type="range" min="0" max="20" step="1"></div>
             <div><div class="row"><label for="reserve">Reserve, after giving</label><span class="muted" id="reserve-read"></span></div><input id="reserve" type="range" min="0" max="30" step="1"></div>
-            <div><label for="debt-balance">Debt you intend to retire</label><div class="field"><span>$</span><input id="debt-balance" inputmode="numeric" autocomplete="off"></div><p class="hint">Leave at zero if there is none. A mortgage can wait outside this page.</p></div>
-            <div><label for="debt-payment">Payment due this month</label><div class="field"><span>$</span><input id="debt-payment" inputmode="numeric" autocomplete="off"></div><p class="hint">The amount that must go out, not an extra you hope to add.</p></div>
+            <div>
+              <label>Debts you intend to retire</label>
+              <p class="hint">Name one, or add more. A mortgage can wait outside this page.</p>
+              <div id="debts" class="debts"></div>
+              <button class="btn quiet" type="button" id="add-debt">Add another</button>
+            </div>
             <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
           </div>
         </section>

@@ -69,3 +69,11 @@
     .warn { border-left:2px solid var(--copper); padding-left:.75rem; margin-top:1rem; }
     footer.fine { max-width:40rem; color:var(--muted); font-size:.9rem; margin-top:2rem; }
     @media print { .no-print { display:none !important; } body { background:#fff; } }
+
+.debts { margin-top:.75rem; }
+.debt { border:1px solid var(--line); border-radius:.5rem; padding:.75rem; margin-bottom:.75rem; background:var(--paper); }
+.debt-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem; }
+.debt .name { width:100%; height:2.5rem; border:1px solid var(--line); border-radius:.5rem; background:var(--card); padding:0 .75rem; margin-bottom:.5rem; }
+.debt-fields { display:grid; gap:.5rem; }
+@media (min-width: 480px) { .debt-fields { grid-template-columns:1fr 1fr; } }
+.debt .remove { height:auto; padding:.2rem .4rem; font-size:.85rem; }
