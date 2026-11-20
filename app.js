@@ -66,19 +66,21 @@ function show(name) {
 }
 function renderDebts() {
   const box = $("debts");
-  box.innerHTML = state.debts.map((d, i) => `
-    <div class="debt" data-id="${d.id}">
+  const esc = (s) => String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+  box.innerHTML = state.debts.map((d, i) => {
+    const safe = esc(d.name);
+    return `<div class="debt" data-id="${d.id}">
       <div class="debt-head">
         <span class="muted">Debt ${i+1}</span>
         ${state.debts.length>1 ? `<button type="button" class="btn quiet remove" data-remove="${d.id}">Remove</button>` : ""}
       </div>
-      <input type="text" class="name" placeholder="Optional name" value="${d.name.replace(/"/g,""")}" data-name="${d.id}" maxlength="40">
+      <input type="text" class="name" placeholder="Optional name" value="${safe}" data-name="${d.id}" maxlength="40">
       <div class="debt-fields">
         <div><label>Balance</label><div class="field"><span>$</span><input inputmode="numeric" class="bal" data-bal="${d.id}" value="${d.balance||""}"></div></div>
         <div><label>Payment this month</label><div class="field"><span>$</span><input inputmode="numeric" class="pay" data-pay="${d.id}" value="${d.payment||""}"></div></div>
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
   if (activeDebts(state).length > 1) {
     box.insertAdjacentHTML("beforeend", `<p class="hint">Listed in the order entered. The smallest balance is the one in view this month.</p>`);
   }
