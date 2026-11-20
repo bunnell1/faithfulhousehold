@@ -8,8 +8,8 @@
     .wrap { max-width: 64rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
     header { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem 1.5rem; }
     .brand { display:flex; align-items:center; gap:.75rem; background:none; border:0; padding:0; text-align:left; color:inherit; }
-    .mark { width:3rem; height:3rem; display:block; }
-    .mark svg { width:3rem; height:3rem; display:block; }
+    .mark { width:3.5rem; height:3.5rem; display:block; }
+    .mark svg { width:3.5rem; height:3.5rem; display:block; }
     .word { display:block; font-size:1.25rem; line-height:1; }
     .word + .word { margin-top:.15rem; }
     .rule { display:block; width:2rem; height:1px; background:var(--copper); margin-top:.5rem; }
