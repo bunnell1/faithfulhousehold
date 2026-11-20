@@ -228,7 +228,5 @@ try {
   const raw = localStorage.getItem(KEY) || localStorage.getItem("faithful-house-v1");
   if (raw) { const parsed = JSON.parse(raw); if (typeof parsed.income==="number" && parsed.goals) state = normalize(parsed); }
 } catch {}
-if (location.hash==="#about" || location.hash==="#install") show("about");
-else if (location.hash==="#plan") show("plan");
-else show("home");
+show("home");
 render();
