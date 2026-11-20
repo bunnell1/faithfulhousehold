@@ -14,22 +14,40 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="bar no-print"></div>
     <header>
-      <div class="brand">
-        <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="#f3eee4" d="M16 6.2 6.2 14.8h2.7V25.8h14.2V14.8h2.7z"/><rect x="14.15" y="18.55" width="3.7" height="7.25" fill="#8d4e2b"/></svg></span>
-        <div>
-          <p class="display" style="margin:0;font-size:1.25rem">Faithful Household</p>
-          <p class="muted" style="margin:0">A stewardship planning aid</p>
-        </div>
-      </div>
+      <button type="button" class="brand" id="nav-mark">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2f4a38"/><path fill="#f3eee4" d="M32 13.5 13.5 30.5h6.2V50.5h24.6V30.5h6.2z"/><path fill="#8d4e2b" d="M28.6 36.2h6.8V50.5h-6.8z"/></svg></span>
+        <span>
+          <span class="display word">Faithful</span>
+          <span class="display word">Household</span>
+          <span class="rule" aria-hidden="true"></span>
+        </span>
+      </button>
       <nav class="no-print" aria-label="Site">
-        <button type="button" id="nav-plan" aria-current="page">Plan</button>
+        <button type="button" id="nav-home">Home</button>
+        <button type="button" id="nav-plan">Plan</button>
         <button type="button" id="nav-about">About</button>
       </nav>
     </header>
 
-    <div id="view-plan">
+    <div id="view-home">
+      <p class="eyebrow">A stewardship planning aid</p>
+      <h1>Give first. Then keep the house in order.</h1>
+      <p class="lede">One month at a time. First fruits, then what is owed, then a reserve, then living on what remains. Change the numbers and the next step changes with them.</p>
+      <div class="actions">
+        <button class="btn solid" type="button" id="open-plan">Open this month</button>
+        <button class="btn quiet" type="button" id="open-about">What this is, and is not</button>
+      </div>
+      <ol class="steps">
+        <li><p class="eyebrow">01</p><h2 class="display">Give</h2><p>First fruits, before the rest of the month is spent.</p></li>
+        <li><p class="eyebrow">02</p><h2 class="display">Owe</h2><p>What must leave. A payment named, not a worry left vague.</p></li>
+        <li><p class="eyebrow">03</p><h2 class="display">Keep</h2><p>A reserve, taken only from what is still there.</p></li>
+        <li><p class="eyebrow">04</p><h2 class="display">Live</h2><p>The remainder. It is not the starting point.</p></li>
+      </ol>
+      <p class="hint stay">Entered numbers stay on your device. They are not uploaded. This is a planning aid, not financial, tax, or investment advice.</p>
+    </div>
+
+    <div id="view-plan" class="hidden">
       <h1>Give first. Then keep the house in order.</h1>
       <p class="lede">One month at a time. First fruits, then what is owed, then a reserve, then living on what remains. Change the numbers and the next step changes with them.</p>
       <div class="grid">
