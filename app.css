@@ -1,7 +1,7 @@
 :root { --paper:#f3eee4; --card:#fbf8f2; --ink:#1c2419; --muted:#4a5244; --line:#e0d6c6; --olive:#2f4a38; --copper:#8d4e2b; }
     * { box-sizing: border-box; }
     body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 "Source Sans 3", sans-serif; }
-    h1,h2,.display { font-family: Fraunces, Georgia, serif; font-weight: 520; letter-spacing: -0.01em; }
+    h1,h2,.display { font-family: "Source Sans 3", sans-serif; font-weight: 600; letter-spacing: -0.01em; }
     button, input { font: inherit; }
     button { cursor: pointer; }
     a { color: inherit; }
