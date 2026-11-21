@@ -2,10 +2,10 @@
   "name": "Faithful Household",
   "short_name": "Household",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/faithfulhousehold/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/faithfulhousehold/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ],
-  "start_url": "/",
+  "start_url": "/faithfulhousehold/",
   "display": "standalone",
   "background_color": "#2f4a38",
   "theme_color": "#2f4a38"
