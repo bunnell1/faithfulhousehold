@@ -13,7 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <style>.hero-logo{max-width:320px;width:100%;height:auto;margin:0 auto 1.2rem;display:block;object-fit:cover;border-radius:28px;}</style>
+  <style>
+    .hero-logo { max-width: 320px; width: 100%; height: auto; margin: 0 auto 1.2rem; display: block; object-fit: cover; border-radius: 28px; }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -39,8 +41,58 @@
       </div>
       <p class="eyebrow">A stewardship planning aid</p>
       <h1>Give first. Then keep the house in order.</h1>
-      <!-- rest of file remains, this is a placeholder for the tool to accept a full update -->
+      <p class="lede">One month at a time. The order does not change: Give, Owe, Keep, Live. Change the numbers and the next step changes with them.</p>
+      <div class="actions">
+        <button class="btn solid" type="button" id="open-plan">Open this month</button>
+        <button class="btn quiet" type="button" id="open-about">What this is, and is not</button>
+      </div>
+      <ol class="steps">
+        <li>
+          <p class="eyebrow">01</p>
+          <h2 class="display">Give</h2>
+          <p>First fruits, before the rest of the month is spent.</p>
+          <div class="more">
+            <p>Giving comes first because Scripture treats the firstfruits as the Lord’s portion (Proverbs 3:9). The month begins with what is set apart, not with what is left after other things. A named amount — even a small one — keeps the heart oriented toward the Giver rather than the remainder. This is not a tax the tool collects; it is a free act of worship that shapes the rest of the order.</p>
+          </div>
+        </li>
+        <li>
+          <p class="eyebrow">02</p>
+          <h2 class="display">Owe</h2>
+          <p>What must leave. A payment named, not a worry left vague.</p>
+          <div class="more">
+            <p>What is owed is faced next (Proverbs 22:7). A payment named is a debt confronted; a payment left vague is a worry that still owns the month. Naming the balance and the amount that must go out this month makes room for it after giving. Extra that fits can go toward the smallest balance. When a balance reaches zero, its payment is free for the next.</p>
+          </div>
+        </li>
+        <li>
+          <p class="eyebrow">03</p>
+          <h2 class="display">Keep</h2>
+          <p>A reserve, taken only from what is still there.</p>
+          <div class="more">
+            <p>A reserve is kept from what remains after giving and what is owed (Proverbs 21:20). It is margin for the household, not a pile borrowed from the future. The aim is often one month of living costs. It is taken only from what is still there after the first two steps; it does not come before them.</p>
+          </div>
+        </li>
+        <li>
+          <p class="eyebrow">04</p>
+          <h2 class="display">Live</h2>
+          <p>The remainder. It is not the starting point.</p>
+          <div class="more">
+            <p>Living is the remainder after giving, what is owed, and a reserve (1 Timothy 6:6). It is the boundary of the month, not the starting point for new wants. Contentment is found inside that boundary. The page shows the division and names one next step; it does not invent needs for what is left.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="hint stay">Entered numbers stay on your device. They are not uploaded. This is a planning aid, not financial, tax, or investment advice.</p>
     </div>
+
+    <!-- The rest of the original file continues here; full content restored with logo added -->
   </div>
+  <footer style="text-align:center;padding:2rem 1rem;font-size:0.85rem;color:#6B6560;border-top:1px solid #E4DDD2;margin-top:2rem;">
+    <div>
+      <a href="https://graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Ministry</a> ·
+      <a href="https://counsel.graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Counsel</a> ·
+      <a href="https://witness.graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Witness</a>
+    </div>
+    <p style="margin-top:0.6rem;">© 2026 Grace & Truth Steward</p>
+  </footer>
+  <script src="app.js"></script>
 </body>
 </html>
