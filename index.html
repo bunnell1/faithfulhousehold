@@ -83,7 +83,109 @@
       <p class="hint stay">Entered numbers stay on your device. They are not uploaded. This is a planning aid, not financial, tax, or investment advice.</p>
     </div>
 
-    <!-- The rest of the original file continues here; full content restored with logo added -->
+    <div id="view-plan" class="hidden">
+      <h1>Give first. Then keep the house in order.</h1>
+      <p class="lede">One month at a time. The order does not change: Give, Owe, Keep, Live. Change the numbers and the next step changes with them.</p>
+      <div class="grid">
+        <section class="card">
+          <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">This month</h2><span class="kicker">01</span></div>
+          <p id="example-note" class="note">Ordinary US figures, not a real household. Edit anything, or clear the form.</p>
+          <div class="no-print">
+            <div class="actions">
+              <button class="btn" type="button" id="load">Load example</button>
+              <button class="btn quiet" type="button" id="clear">Clear</button>
+              <button class="btn quiet" type="button" id="next-month">Start next month from this</button>
+              <button class="btn quiet" type="button" id="print">Print</button>
+            </div>
+            <div class="fileline">
+              <label class="sr" for="filename" style="position:absolute;left:-999px">File name</label>
+              <input id="filename" type="text" placeholder="november-plan" autocomplete="off">
+              <button class="btn solid" type="button" id="save">Save</button>
+              <button class="btn" type="button" id="open">Open</button>
+              <input id="file" type="file" accept="application/json,.json" hidden>
+            </div>
+            <p class="hint" id="file-note" role="status">Enter a filename and save. Open loads that file back onto this form.</p>
+          </div>
+          <div class="stack" style="margin-top:1.25rem">
+            <div><label for="income">Take-home pay</label><div class="field"><span>$</span><input id="income" inputmode="numeric" autocomplete="off"></div><p class="hint">What actually arrives this month, after taxes.</p></div>
+            <div><div class="row"><label for="giving">Giving, first</label><span class="muted" id="giving-read"></span></div><input id="giving" type="range" min="0" max="20" step="1"></div>
+            <div><div class="row"><label for="reserve">Reserve, after giving</label><span class="muted" id="reserve-read"></span></div><input id="reserve" type="range" min="0" max="30" step="1"></div>
+            <div>
+              <label>Debts you intend to retire</label>
+              <p class="hint">Name one, or add more. A mortgage can wait outside this page.</p>
+              <div id="debts" class="debts"></div>
+              <button class="btn quiet" type="button" id="add-debt">Add another</button>
+              <details class="note-expand">
+                <summary>How to use more than one debt</summary>
+                <ol>
+                  <li>Name every debt except a mortgage. A short name is enough.</li>
+                  <li>Enter the balance and the payment that must go out this month on each.</li>
+                  <li>The order still takes giving first, then the sum of those payments.</li>
+                  <li>Any extra that fits after giving can go toward the smallest balance.</li>
+                  <li>When a balance reaches zero, remove its row. Its payment is free to move to the next.</li>
+                </ol>
+                <p class="hint">The smallest balance is the one in view. The page does not choose the order for you.</p>
+              </details>
+            </div>
+            <div><label for="saved">Already set aside</label><div class="field"><span>$</span><input id="saved" inputmode="numeric" autocomplete="off"></div><p class="hint">Cash you could use without borrowing. Not retirement.</p></div>
+            <div>
+              <label>What Live is for</label>
+              <p class="hint">Optional. Enter amounts. The rest is what remains of Live. Empty fields count as zero.</p>
+              <div class="livefor">
+                <div><label for="live-shelter">Shelter</label><div class="field"><span>$</span><input id="live-shelter" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-food">Food</label><div class="field"><span>$</span><input id="live-food" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-fuel">Fuel</label><div class="field"><span>$</span><input id="live-fuel" inputmode="numeric" autocomplete="off"></div></div>
+                <div><label for="live-utilities">Utilities</label><div class="field"><span>$</span><input id="live-utilities" inputmode="numeric" autocomplete="off"></div></div>
+                <div class="live-rest-row"><label>The rest</label><p class="rest-amt" id="live-rest">$0</p><p class="hint">What is left of Live after the amounts above.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div>
+          <section class="card">
+            <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">The order</h2><span class="kicker">02</span></div>
+            <p class="hint">Giving is taken first. What is owed comes next. Reserve takes only what is still there. Living is the remainder — it is not the starting point.</p>
+            <p id="empty" class="hint" style="text-align:center;border:1px dashed var(--line);border-radius:.5rem;padding:2rem 1rem">Enter take-home pay to see how the month divides.</p>
+            <ol class="order" id="order"></ol>
+            <p id="short"></p>
+          </section>
+          <section class="next">
+            <div class="row"><span class="kicker">Do this next</span><span class="kicker">03</span></div>
+            <h2 class="display" id="step-title" style="margin:.6rem 0 0;font-size:1.6rem"></h2>
+            <p id="step-body"></p>
+            <blockquote><p id="step-verse"></p><footer id="step-ref"></footer></blockquote>
+          </section>
+        </div>
+      </div>
+      <section class="card" style="margin-top:1.5rem">
+        <div class="row"><h2 class="display" style="margin:0;font-size:1.6rem">Three intentions</h2><span class="kicker">04</span></div>
+        <p class="hint">You mark these. The plan does not decide them for you.</p>
+        <div class="goals" id="goals"></div>
+      </section>
+      <footer class="fine">
+        <p>Entered numbers stay on your device. They are not uploaded. This is a planning aid, not financial, tax, or investment advice, and not a substitute for pastoral counsel.</p>
+      </footer>
+    </div>
+
+    <div id="view-about" class="about hidden">
+      <h1>A planning aid, not a financial product.</h1>
+      <p class="lede">Grace & Truth Steward shows one month's finances in a biblical order: giving first, then what is owed, then a reserve, then living on what remains. It is meant to be used with Scripture open, alongside prayer, the local church, and counsel you already trust.</p>
+      <section><h2>What this site is for</h2><ul><li>Put this month’s take-home into an order you can see.</li><li>Receive one next step, with a passage, instead of a pile of advice.</li><li>Mark three intentions yourself. The site does not decide them.</li><li>Enter a filename and save. Open that file later and it loads back onto the plan.</li><li>Print the month and keep the paper.</li></ul></section>
+      <section><h2>What this site is not</h2><ul><li>Not financial, tax, or investment advice.</li><li>Not a bank connection, a full budget, or a place that holds your accounts.</li><li>Not a substitute for pastoral counsel or a qualified professional.</li><li>Entered numbers stay on your device. They are not uploaded to the website. Do not put account numbers, full names, or anything that identifies a person in the saved file.</li></ul></section>
+      <section><h2>Why this order</h2>
+        <p>The order is not a budget system. It is the shape Scripture already gives to a household’s money.</p>
+        <ul>
+          <li><strong>Give first.</strong> “Honour the LORD with thy substance, and with the firstfruits of all thine increase” (Proverbs 3:9). The month begins with what is set apart, not with what is left.</li>
+          <li><strong>Then what is owed.</strong> “The borrower is servant to the lender” (Proverbs 22:7). A payment named is a debt faced. A payment left vague is a worry that still owns the month.</li>
+          <li><strong>Then a reserve.</strong> “There is treasure to be desired and oil in the dwelling of the wise; but a foolish man spendeth it up” (Proverbs 21:20). Margin is kept from what remains after giving and paying, not borrowed from the future.</li>
+          <li><strong>Then live on what is left.</strong> “But godliness with contentment is great gain” (1 Timothy 6:6). The remainder is the boundary of the month, not the starting point for new wants.</li>
+        </ul>
+        <p>Knowing the numbers is part of the same care: “Be thou diligent to know the state of thy flocks, and look well to thy herds” (Proverbs 27:23). The page shows one month in that order and names one next step. It does not replace prayer, the local church, or counsel you already trust.</p>
+      </section>
+      <section><h2>Where the numbers live</h2><p>The plan in this browser is kept in local storage on this device. We do not receive it. Clearing site data, or opening another browser, removes that local copy. A saved file is the copy you can move. Opening it loads the amounts back onto this form.</p></section>
+      <section id="install"><h2>Add it to your home screen</h2><p class="muted">No app store. The site itself can sit on your phone.</p><h3>Android, in Chrome</h3><ol><li>Open Grace & Truth Steward in Chrome.</li><li>Tap the menu, the three dots at the top.</li><li>Tap Install app, or Add to Home screen.</li><li>Confirm.</li></ol><h3>iPhone, in Safari</h3><ol><li>Open Grace & Truth Steward in Safari.</li><li>Tap the Share button.</li><li>Tap Add to Home Screen, then Add.</li></ol></section>
+      <section style="border-top:1px solid var(--line);padding-top:1.5rem"><h2>This version, and later</h2><p>This is the first version: one month, numbers you type, one next step. Saved files from this version will still open.</p></section>
+    </div>
   </div>
   <footer style="text-align:center;padding:2rem 1rem;font-size:0.85rem;color:#6B6560;border-top:1px solid #E4DDD2;margin-top:2rem;">
     <div>
