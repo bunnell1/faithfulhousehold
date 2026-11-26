@@ -15,9 +15,42 @@
   <link rel="stylesheet" href="app.css">
   <style>
     .hero-logo { max-width: 320px; width: 100%; height: auto; margin: 0 auto 1.2rem; display: block; object-fit: cover; border-radius: 28px; }
-  </style>
+  
+html[data-theme="dark"] {
+  --bg: #141816;
+  --surface: #1E2420;
+  --text: #F3EFE7;
+  --muted: #B7AFA4;
+  --accent: #D7C4A3;
+  --border: #33403A;
+}
+html[data-theme="dark"] body { background: var(--bg); color: var(--text); }
+</style>
 </head>
-<body>
+<body><button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:var(--surface,#fff);border:1px solid var(--border,#ddd);border-radius:999px;width:42px;height:42px;cursor:pointer;z-index:100;" title="Toggle dark mode"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"></svg></button>
+<script>
+(function(){
+  function icon(){
+    var el=document.getElementById('theme-icon');
+    if(!el)return;
+    var dark=document.documentElement.getAttribute('data-theme')==='dark';
+    el.innerHTML=dark?'<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/>':'<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/>';
+  }
+  var btn=document.getElementById('theme-toggle');
+  if(btn){
+    btn.onclick=function(){
+      var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('theme',next);
+      icon();
+    };
+  }
+  var saved=localStorage.getItem('theme');
+  if(saved)document.documentElement.setAttribute('data-theme',saved);
+  icon();
+})();
+</script>
+
   <div class="wrap">
     <header>
       <button type="button" class="brand" id="nav-mark">
@@ -187,13 +220,15 @@
       <section style="border-top:1px solid var(--line);padding-top:1.5rem"><h2>This version, and later</h2><p>This is the first version: one month, numbers you type, one next step. Saved files from this version will still open.</p></section>
     </div>
   </div>
-  <footer style="text-align:center;padding:2rem 1rem;font-size:0.85rem;color:#6B6560;border-top:1px solid #E4DDD2;margin-top:2rem;">
+  <footer style="text-align:center;padding:2rem 1rem;font-size:0.85rem;color:var(--muted,#6B6560);border-top:1px solid var(--border,#E4DDD2);margin-top:2rem;">
     <div>
-      <a href="https://graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Ministry</a> ·
-      <a href="https://counsel.graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Counsel</a> ·
-      <a href="https://witness.graceandtruthministry.com" target="_blank" rel="noopener" style="color:#1F4D3A;margin:0 0.5rem;">Grace & Truth Witness</a>
+      <a href="https://graceandtruthministry.com" style="color:var(--accent,#1F4D3A);margin:0 0.4rem;">Grace & Truth Ministry</a> ·
+      <a href="https://graceandtruthministry.com/about.html" style="color:var(--accent,#1F4D3A);margin:0 0.4rem;">About</a> ·
+      <a href="https://graceandtruthministry.com/privacy.html" style="color:var(--accent,#1F4D3A);margin:0 0.4rem;">Privacy</a> ·
+      <a href="https://graceandtruthministry.com/terms.html" style="color:var(--accent,#1F4D3A);margin:0 0.4rem;">Terms</a>
     </div>
-    <p style="margin-top:0.6rem;">© 2026 Grace & Truth Steward</p>
+    <p style="margin-top:0.6rem;font-size:0.8rem;">Scripture quotations are from the ESV® Bible. Used by permission. All rights reserved.</p>
+    <p style="margin-top:0.3rem;">© 2026 Grace & Truth Steward</p>
   </footer>
   <script src="app.js"></script>
 </body>
