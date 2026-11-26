@@ -17,14 +17,19 @@
     .hero-logo { max-width: 320px; width: 100%; height: auto; margin: 0 auto 1.2rem; display: block; object-fit: cover; border-radius: 28px; }
   
 html[data-theme="dark"] {
-  --bg: #141816;
-  --surface: #1E2420;
-  --text: #F3EFE7;
+  --paper: #141816;
+  --card: #1E2420;
+  --ink: #F3EFE7;
   --muted: #B7AFA4;
-  --accent: #D7C4A3;
-  --border: #33403A;
+  --line: #33403A;
+  --olive: #D7C4A3;
+  --copper: #D4B483;
 }
-html[data-theme="dark"] body { background: var(--bg); color: var(--text); }
+html[data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+html[data-theme="dark"] .steps li { background: var(--card); color: var(--ink); }
+html[data-theme="dark"] .card { background: var(--card); color: var(--ink); }
+html[data-theme="dark"] .steps .more { background: #2A3830; color: var(--ink); }
+html[data-theme="dark"] input, html[data-theme="dark"] textarea { background: #171C19; color: var(--ink); border-color: var(--line); }
 </style>
 </head>
 <body><button id="theme-toggle" style="position:fixed;top:1rem;right:1rem;background:var(--surface,#fff);border:1px solid var(--border,#ddd);border-radius:999px;width:42px;height:42px;cursor:pointer;z-index:100;" title="Toggle dark mode"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"></svg></button>
